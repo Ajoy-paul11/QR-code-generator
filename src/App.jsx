@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useState } from "react";
+import QrCode from "./component/QrCode.jsx";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -18,6 +19,7 @@ function App() {
         <input type="url" name="url" id="url" required />
         <button type="submit">Generate</button>
       </form>
+      <QrCode value={inputValue} />
     </>
   );
 }
