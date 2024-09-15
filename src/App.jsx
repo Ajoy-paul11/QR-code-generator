@@ -13,18 +13,18 @@ function App() {
 
   return (
     <div className=" h-screen w-full bg-[#101820] text-[#90AFC5]">
-      <h1 className=" w-full text-center mx-auto text-5xl font-bold py-16">
+      <h1 className=" w-full text-center mx-auto text-3xl md:text-5xl font-bold py-12 md:py-16">
         QR code Generator
       </h1>
-      <div className=" w-full text-center">
+      <div className=" w-full text-center mb-10 ">
         <form onSubmit={handleInput}>
           <label
             htmlFor="url"
-            className=" w-full text-2xl font-semibold block ml-[-136px] mb-6"
+            className=" w-full text-2xl font-semibold block -ml-[112px] md:ml-[-136px] mb-6 "
           >
             Enter your URL :
           </label>
-          <div className=" flex items-center pl-40">
+          <div className=" flex items-center justify-center px-3 md:px-0 md:pl-6">
             <input
               type="url"
               name="url"
@@ -42,7 +42,7 @@ function App() {
           </div>
         </form>
       </div>
-      <div>
+      <div className=" w-full flex justify-center">
         <QrCode value={inputValue} />
       </div>
     </div>
