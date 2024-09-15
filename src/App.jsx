@@ -1,15 +1,25 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useState } from "react";
 import QrCode from "./component/QrCode.jsx";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const handleInput = useCallback((e) => {
     e.preventDefault();
     setInputValue(e.target.elements.url.value);
   }, []);
-  console.log(inputValue);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div className=" h-screen w-full bg-[#101820] text-[#90AFC5]">
@@ -43,7 +53,7 @@ function App() {
         </form>
       </div>
       <div className=" w-full flex justify-center">
-        <QrCode value={inputValue} />
+        <QrCode value={inputValue} size={windowWidth > 1023 ? 200 : 120} />
       </div>
     </div>
   );
