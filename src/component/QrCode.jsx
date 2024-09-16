@@ -3,13 +3,14 @@ import { QRCodeCanvas } from "qrcode.react";
 
 function QrCode({ value, size }) {
   const qrRef = useRef(null);
+
   const handlePNG = () => {
-    console.log(qrRef);
+    // console.log(qrRef);
     console.log(qrRef.current);
     const canvas = qrRef.current.querySelector("canvas");
-    console.log(canvas);
+    // console.log(canvas);
     const image = canvas.toDataURL("image/png");
-    console.log(image);
+    // console.log(image);
     const link = document.createElement("a");
     link.href = image;
     link.download = "qrcode.png";
