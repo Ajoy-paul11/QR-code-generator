@@ -5,12 +5,8 @@ function QrCode({ value, size }) {
   const qrRef = useRef(null);
 
   const handlePNG = () => {
-    // console.log(qrRef);
-    console.log(qrRef.current);
     const canvas = qrRef.current.querySelector("canvas");
-    // console.log(canvas);
     const image = canvas.toDataURL("image/png");
-    // console.log(image);
     const link = document.createElement("a");
     link.href = image;
     link.download = "qrcode.png";
@@ -19,7 +15,7 @@ function QrCode({ value, size }) {
     document.body.removeChild(link);
   };
 
-  const handlePDF = () => {
+  const handleJPG = () => {
     const canvas = qrRef.current.querySelector("canvas");
     const image = canvas.toDataURL("image/jpg");
     const link = document.createElement("a");
@@ -42,7 +38,7 @@ function QrCode({ value, size }) {
           png
         </button>
         <button
-          onClick={handlePDF}
+          onClick={handleJPG}
           className=" px-4 py-2 bg-[#90AFC5] text-[#101820] rounded-lg text-xl"
         >
           jpg
